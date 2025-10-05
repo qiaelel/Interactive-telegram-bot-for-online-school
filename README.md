@@ -8,7 +8,7 @@
 
 # Используемые модули
 <li>pytelegrambotapi</li>
-Для установки модулей используйте pip install -r requirements.txt
+<p>Для установки модулей используйте pip install -r requirements.txt</p>
 Для правильной работы рекомендован Python 3.13 и выше
 
  # Разработчик
