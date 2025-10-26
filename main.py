@@ -8,6 +8,7 @@ token = config.token
 admin = config.admin
 
 bot = TeleBot(token, parse_mode='MARKDOWN')
+print("Бот запущен.")
 print("Здесь будут отображаться логи:")
 
 #кнопка возврата в главное меню
@@ -24,15 +25,15 @@ def welcome(message):
     help_author = types.InlineKeyboardButton(text='Помощь', callback_data='help_author')
     profile = types.InlineKeyboardButton(text="Профиль", callback_data='profile')
     kb.add(schedule, help_author, profile)
-    bot.send_message(message.chat.id, "Привет! Ты находишься в главном меню бота для онлайн школы. ", reply_markup=kb, parse_mode='HTML')
+    bot.send_message(message.chat.id, "Привет! Ты находишься в главном меню бота для онлайн школы. company, v1.0", reply_markup=kb, parse_mode='HTML')
 
-#профиль
-@bot.callback_query_handler(func=lambda call: True)
-def profile(message):
-    if callback_data == 'profile':
-        user_id = message.from_user.id
-        bot.answer_callback_query(call.id, 'Профиль')
-        bot.send_message(message.chat.id, f'Ваш id: {user_id}')
+
+#@bot.callback_query_handler(func=lambda call:True)
+#def callback_query(call):
+    #if call.data = 'profile':
+        #user_id = call.from_user.id
+        #bot.send_message(call.chat.id, f'Профиль:')
+        #bot.send_message(call.chat.id, f'Ваш id: {user_id}')
     
     
 
@@ -44,7 +45,7 @@ def adminpanel(message):
         kb = types.InlineKeyboardMarkup(row_width=1)
         adminschedule = types.InlineKeyboardButton(text='Администрирование расписанием', callback_data='adminschedule')
         help_author = types.InlineKeyboardButton(text='Помощь', callback_data='help_author')
-        profile = types.InlineKeyboardButton(text="Профиль", callback_data='go2')
+        profile = types.InlineKeyboardButton(text="Управление профилями", callback_data='editprofiles')
         kb.add(help_author, adminschedule, profile)
         bot.send_message(message.chat.id, "Добро пожаловать в админ панель!", reply_markup=kb, parse_mode='HTML')
     else:

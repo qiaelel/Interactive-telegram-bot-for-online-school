@@ -1,2 +1,2 @@
-token = ""
-admin = "8179893696"
+token = "8010835106:AAHNqFhSizoWwuSshRXJizeXJKPTlMdE5CA"
+admin = ""
